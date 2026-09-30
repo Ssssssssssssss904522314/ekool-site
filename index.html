@@ -33,13 +33,13 @@ footer{border-top:1px solid #ffffff0d;padding:28px 0;color:#737c92;font-size:13p
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}.reveal.visible{opacity:1;transform:none}@keyframes heroIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}@keyframes phoneIn{from{opacity:0;transform:translateY(28px) rotate(5deg)}to{opacity:1;transform:rotate(2deg)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero>div:first-child,.hero .phone{animation:none}.btn,.ghost,.phone,.card,.faq-list details{transition:none}.reveal{opacity:1;transform:none;transition:none}}
 @media(max-width:800px){.navlinks{display:none}.hero{grid-template-columns:1fr;padding:55px 0}.phone{transform:none}.cards{grid-template-columns:1fr}section{padding:60px 0}h2{font-size:34px}footer{flex-direction:column}}
-.faq-list{max-width:900px;margin:42px auto 0;display:grid;gap:14px}.faq-list details{background:#ffffff05;border:1px solid #ffffff10;border-radius:18px;padding:0 22px;transition:transform .3s ease,border-color .3s ease,background .3s ease}.faq-list details:hover{border-color:#ffffff20;background:#ffffff08}.faq-list details[open]{transform:translateY(-2px);border-color:#6d7cff55}.faq-list summary{cursor:pointer;transition:color .2s ease;list-style:none;padding:22px 34px 22px 0;font-weight:700;position:relative}.faq-list summary:hover{color:#fff}.faq-list summary::-webkit-details-marker{display:none}.faq-list summary:after{content:"+";position:absolute;right:2px;top:17px;font-size:25px;font-weight:400}.faq-list details[open] summary:after{content:"−"}.faq-answer{padding:0 0 22px;color:#aeb5c9;line-height:1.65}.faq-answer p{margin:8px 0}.faq-answer code{background:#ffffff10;padding:3px 7px;border-radius:7px;word-break:break-all}
+.support{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:820px;margin:42px auto 0}.support-card{display:flex;align-items:center;gap:16px;padding:24px;border:1px solid #ffffff10;background:#ffffff05;border-radius:22px;transition:transform .3s ease,background .3s ease,border-color .3s ease}.support-card:hover{transform:translateY(-6px);background:#ffffff09;border-color:#ffffff20}.support-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:#ffffff0b;font-size:25px}.support-card h3{margin:0 0 5px;font-size:17px}.support-card p{margin:0;color:#969fb5;font-size:13px}.support-arrow{margin-left:auto;color:#8d9cff;font-size:22px}@media(max-width:800px){.support{grid-template-columns:1fr}}.faq-list{max-width:900px;margin:42px auto 0;display:grid;gap:14px}.faq-list details{background:#ffffff05;border:1px solid #ffffff10;border-radius:18px;padding:0 22px;transition:transform .3s ease,border-color .3s ease,background .3s ease}.faq-list details:hover{border-color:#ffffff20;background:#ffffff08}.faq-list details[open]{transform:translateY(-2px);border-color:#6d7cff55}.faq-list summary{cursor:pointer;transition:color .2s ease;list-style:none;padding:22px 34px 22px 0;font-weight:700;position:relative}.faq-list summary:hover{color:#fff}.faq-list summary::-webkit-details-marker{display:none}.faq-list summary:after{content:"+";position:absolute;right:2px;top:17px;font-size:25px;font-weight:400}.faq-list details[open] summary:after{content:"−"}.faq-answer{padding:0 0 22px;color:#aeb5c9;line-height:1.65}.faq-answer p{margin:8px 0}.faq-answer code{background:#ffffff10;padding:3px 7px;border-radius:7px;word-break:break-all}
 </style>
 </head>
 <body>
 <header><div class="wrap"><nav>
 <a class="logo" href="#">EKOOOL</a>
-<div class="navlinks"><a href="#about">О проекте</a><a href="#features">Возможности</a></div>
+<div class="navlinks"><a href="#about">О проекте</a><a href="#features">Возможности</a><a href="#support">Поддержка</a></div>
 <a class="btn small" href="https://ekool-server.onrender.com">Открыть</a>
 </nav></div></header>
 
@@ -83,6 +83,13 @@ footer{border-top:1px solid #ffffff0d;padding:28px 0;color:#737c92;font-size:13p
 <details><summary>А это безопасно?</summary><div class="faq-answer"><p><strong>Да.</strong> Сообщения шифруются внутри сервера. Сервер видит только <code>ak=09hasw+9-dd4a@s</code>.</p></div></details>
 <details><summary>Тут есть анонимные номера, 2-ые юзернеймы?</summary><div class="faq-answer"><p><strong>Да!</strong> Мы их добавили 29.09.2026.</p></div></details>
 <details><summary>В мессенджере могут быть недостатки?</summary><div class="faq-answer"><p><strong>Да.</strong> К сожалению, так как мессенджер открылся недавно. Но со временем их уже не будет!</p></div></details>
+</div></div></section>
+
+<section id="support"><div class="wrap">
+<div class="center"><div class="eyebrow">ПОДДЕРЖКА</div><h2>Контактный центр</h2><p class="sub">Если возник вопрос или нужна помощь с EKOOOL — свяжитесь с нашей поддержкой.</p></div>
+<div class="support">
+<a class="support-card reveal" href="https://t.me/ttxcm" target="_blank" rel="noopener noreferrer"><div class="support-icon">📢</div><div><h3>Канал EKOOOL</h3><p>Новости, обновления и объявления</p></div><span class="support-arrow">→</span></a>
+<a class="support-card reveal" href="https://t.me/helpekool" target="_blank" rel="noopener noreferrer"><div class="support-icon">💬</div><div><h3>Личная поддержка</h3><p>Написать в поддержку EKOOOL</p></div><span class="support-arrow">→</span></a>
 </div></div></section>
 
 <section><div class="wrap"><div class="cta">
