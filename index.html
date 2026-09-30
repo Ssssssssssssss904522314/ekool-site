@@ -6,21 +6,21 @@
 <title>EKOOOL — мессенджер</title>
 <meta name="description" content="EKOOOL — современный мессенджер для общения.">
 <style>
-*{box-sizing:border-box}html{scroll-behavior:smooth}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{overflow-x:hidden}::selection{background:#6d70ff55;color:#fff}
 body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#090b14;color:#fff}
 a{text-decoration:none;color:inherit}.wrap{width:min(1120px,92%);margin:auto}
 nav{height:76px;display:flex;align-items:center;justify-content:space-between}
 .logo{font-size:27px;font-weight:900;letter-spacing:.5px;background:linear-gradient(90deg,#617cff,#9a58ff);-webkit-background-clip:text;color:transparent}
-.navlinks{display:flex;gap:25px;color:#b7bdd1;font-size:14px}.navlinks a:hover{color:#fff}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 21px;border-radius:14px;font-weight:800;background:linear-gradient(135deg,#5e7cff,#8650ff);box-shadow:0 12px 35px #624fff2e}
-.btn:hover{transform:translateY(-1px)}.btn.small{padding:10px 16px;font-size:14px}
-.hero{min-height:650px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:50px}
+.navlinks{display:flex;gap:25px;color:#b7bdd1;font-size:14px}.navlinks a{transition:color .2s ease}.navlinks a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 21px;border-radius:14px;font-weight:800;background:linear-gradient(135deg,#5e7cff,#8650ff);box-shadow:0 12px 35px #624fff2e;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease,filter .25s ease;will-change:transform}.btn:hover{transform:translateY(-3px) scale(1.01);box-shadow:0 18px 45px #624fff45;filter:brightness(1.06)}.btn:active{transform:translateY(-1px) scale(.985)}
+.btn.small{padding:10px 16px;font-size:14px}
+.hero{min-height:650px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:50px}.hero>div:first-child{animation:heroIn .8s cubic-bezier(.2,.8,.2,1) both}.hero .phone{animation:phoneIn .9s .08s cubic-bezier(.2,.8,.2,1) both}
 .badge{display:inline-block;padding:8px 12px;border:1px solid #ffffff18;background:#ffffff08;border-radius:999px;color:#bfc7ff;font-size:13px}
 h1{font-size:clamp(48px,7vw,82px);line-height:.95;margin:20px 0 22px;letter-spacing:-4px}
 .grad{background:linear-gradient(100deg,#6682ff,#a451ff);-webkit-background-clip:text;color:transparent}
 .lead{font-size:19px;line-height:1.6;color:#aeb5c9;max-width:610px}.actions{display:flex;gap:13px;margin-top:30px;flex-wrap:wrap}
-.ghost{padding:13px 21px;border:1px solid #ffffff18;border-radius:14px;color:#dce0ec;background:#ffffff06;font-weight:700}
-.phone{width:min(350px,90%);margin:auto;padding:10px;border-radius:38px;background:#151927;border:1px solid #ffffff18;box-shadow:0 35px 90px #0008;transform:rotate(2deg)}
+.ghost{padding:13px 21px;border:1px solid #ffffff18;border-radius:14px;color:#dce0ec;background:#ffffff06;font-weight:700;transition:transform .25s ease,background .25s ease,border-color .25s ease}.ghost:hover{transform:translateY(-3px);background:#ffffff0d;border-color:#ffffff2b}
+.phone{width:min(350px,90%);margin:auto;padding:10px;border-radius:38px;background:#151927;border:1px solid #ffffff18;box-shadow:0 35px 90px #0008;transform:rotate(2deg);transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s ease}.phone:hover{transform:rotate(0deg) translateY(-8px);box-shadow:0 45px 105px #000a}
 .screen{border-radius:29px;min-height:570px;background:linear-gradient(180deg,#121626,#0d101b);overflow:hidden}
 .top{padding:23px 20px 15px;border-bottom:1px solid #ffffff0c;font-weight:800}
 .chat{margin:12px;padding:13px 14px;border-radius:16px;background:#1b2030;color:#dfe4f2}.chat.me{margin-left:55px;background:linear-gradient(135deg,#5f78ed,#8150e8)}
@@ -28,11 +28,13 @@ h1{font-size:clamp(48px,7vw,82px);line-height:.95;margin:20px 0 22px;letter-spac
 section{padding:85px 0}.center{text-align:center}.eyebrow{color:#8d9cff;font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:1.5px}
 h2{font-size:42px;margin:12px 0}.sub{color:#9da5b9;max-width:620px;margin:0 auto;line-height:1.6}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}
-.card{padding:28px;border:1px solid #ffffff10;background:#ffffff05;border-radius:22px}.icon{font-size:28px}.card h3{margin:18px 0 8px}.card p{color:#969fb5;line-height:1.55}
+.card{padding:28px;border:1px solid #ffffff10;background:#ffffff05;border-radius:22px;transition:transform .35s cubic-bezier(.2,.8,.2,1),background .35s ease,border-color .35s ease,box-shadow .35s ease}.card:hover{transform:translateY(-8px);background:#ffffff09;border-color:#ffffff1d;box-shadow:0 22px 55px #0005}.icon{font-size:28px}.card h3{margin:18px 0 8px}.card p{color:#969fb5;line-height:1.55}
 .cta{padding:55px;border-radius:28px;text-align:center;background:radial-gradient(circle at 50% 0,#5e68ff2a,transparent 55%),#111523;border:1px solid #ffffff10}
 footer{border-top:1px solid #ffffff0d;padding:28px 0;color:#737c92;font-size:13px;display:flex;justify-content:space-between;gap:20px}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}.reveal.visible{opacity:1;transform:none}@keyframes heroIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}@keyframes phoneIn{from{opacity:0;transform:translateY(28px) rotate(5deg)}to{opacity:1;transform:rotate(2deg)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero>div:first-child,.hero .phone{animation:none}.btn,.ghost,.phone,.card,.faq-list details{transition:none}.reveal{opacity:1;transform:none;transition:none}}
 @media(max-width:800px){.navlinks{display:none}.hero{grid-template-columns:1fr;padding:55px 0}.phone{transform:none}.cards{grid-template-columns:1fr}section{padding:60px 0}h2{font-size:34px}footer{flex-direction:column}}
-.faq-list{max-width:900px;margin:42px auto 0;display:grid;gap:14px}.faq-list details{background:#ffffff05;border:1px solid #ffffff10;border-radius:18px;padding:0 22px}.faq-list summary{cursor:pointer;list-style:none;padding:22px 34px 22px 0;font-weight:700;position:relative}.faq-list summary::-webkit-details-marker{display:none}.faq-list summary:after{content:"+";position:absolute;right:2px;top:17px;font-size:25px;font-weight:400}.faq-list details[open] summary:after{content:"−"}.faq-answer{padding:0 0 22px;color:#aeb5c9;line-height:1.65}.faq-answer p{margin:8px 0}.faq-answer code{background:#ffffff10;padding:3px 7px;border-radius:7px;word-break:break-all}
+.faq-list{max-width:900px;margin:42px auto 0;display:grid;gap:14px}.faq-list details{background:#ffffff05;border:1px solid #ffffff10;border-radius:18px;padding:0 22px;transition:transform .3s ease,border-color .3s ease,background .3s ease}.faq-list details:hover{border-color:#ffffff20;background:#ffffff08}.faq-list details[open]{transform:translateY(-2px);border-color:#6d7cff55}.faq-list summary{cursor:pointer;transition:color .2s ease;list-style:none;padding:22px 34px 22px 0;font-weight:700;position:relative}.faq-list summary:hover{color:#fff}.faq-list summary::-webkit-details-marker{display:none}.faq-list summary:after{content:"+";position:absolute;right:2px;top:17px;font-size:25px;font-weight:400}.faq-list details[open] summary:after{content:"−"}.faq-answer{padding:0 0 22px;color:#aeb5c9;line-height:1.65}.faq-answer p{margin:8px 0}.faq-answer code{background:#ffffff10;padding:3px 7px;border-radius:7px;word-break:break-all}
 </style>
 </head>
 <body>
@@ -87,6 +89,9 @@ footer{border-top:1px solid #ffffff0d;padding:28px 0;color:#737c92;font-size:13p
 <div style="margin-top:25px"><a class="btn" href="https://ekool-server.onrender.com">Открыть EKOOOL →</a></div>
 </div></div></section>
 </main>
+<script>
+(()=>{const items=document.querySelectorAll('section:not(.hero) .wrap,.card,.faq-list details,.cta');items.forEach((el,i)=>{el.classList.add('reveal');el.style.transitionDelay=Math.min((i%4)*70,210)+'ms'});const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});items.forEach(el=>io.observe(el));})();
+</script>
 
 <footer><div class="wrap" style="width:min(1120px,92%);display:flex;justify-content:space-between"><span>© 2026 EKOOOL</span><span>Мессенджер в браузере</span></div></footer>
 </body>
