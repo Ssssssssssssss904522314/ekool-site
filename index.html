@@ -20,11 +20,10 @@ h1{font-size:clamp(48px,7vw,82px);line-height:.95;margin:20px 0 22px;letter-spac
 .grad{background:linear-gradient(100deg,#6682ff,#a451ff);-webkit-background-clip:text;color:transparent}
 .lead{font-size:19px;line-height:1.6;color:#aeb5c9;max-width:610px}.actions{display:flex;gap:13px;margin-top:30px;flex-wrap:wrap}
 .ghost{padding:13px 21px;border:1px solid #ffffff18;border-radius:14px;color:#dce0ec;background:#ffffff06;font-weight:700;transition:transform .25s ease,background .25s ease,border-color .25s ease}.ghost:hover{transform:translateY(-3px);background:#ffffff0d;border-color:#ffffff2b}
-.phone{width:min(350px,90%);margin:auto;padding:10px;border-radius:38px;background:#151927;border:1px solid #ffffff18;box-shadow:0 35px 90px #0008;transform:rotate(2deg);transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s ease}.phone:hover{transform:rotate(0deg) translateY(-8px);box-shadow:0 45px 105px #000a}
-.screen{border-radius:29px;min-height:570px;background:linear-gradient(180deg,#121626,#0d101b);overflow:hidden}
-.top{padding:23px 20px 15px;border-bottom:1px solid #ffffff0c;font-weight:800}
-.chat{margin:12px;padding:13px 14px;border-radius:16px;background:#1b2030;color:#dfe4f2}.chat.me{margin-left:55px;background:linear-gradient(135deg,#5f78ed,#8150e8)}
-.status{font-size:11px;color:#8f98b1;margin-top:5px}
+.phone{width:min(390px,94%);margin:auto;padding:10px;border-radius:38px;background:#151927;border:1px solid #ffffff18;box-shadow:0 35px 90px #0008;transform:rotate(2deg);transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s ease}.phone:hover{transform:rotate(0deg) translateY(-8px);box-shadow:0 45px 105px #000a}
+.screen{border-radius:29px;min-height:570px;height:570px;background:linear-gradient(180deg,#121626,#0d101b);overflow:hidden;display:flex;flex-direction:column}
+.top{padding:18px 18px 13px;border-bottom:1px solid #ffffff0c;font-weight:800;display:flex;align-items:center;gap:10px}.ai-dot{width:9px;height:9px;border-radius:50%;background:#36df85;box-shadow:0 0 12px #36df85}.ai-title{flex:1}.ai-name{font-size:14px}.ai-status{font-size:10px;color:#8f98b1;font-weight:500;margin-top:2px}
+.chatbox{flex:1;overflow:auto;padding:8px 7px 4px;scroll-behavior:smooth}.chat{margin:9px 5px;padding:11px 12px;border-radius:16px;background:#1b2030;color:#dfe4f2;max-width:84%;font-size:13px;line-height:1.4}.chat.me{margin-left:auto;background:linear-gradient(135deg,#5f78ed,#8150e8);color:#fff}.status{font-size:9px;color:#8f98b1;margin-top:5px}.chat.me .status{color:#d7dbff}.typing{display:none;margin:6px 5px 9px;color:#8f98b1;font-size:11px}.typing.show{display:block}.demo-form{display:flex;gap:7px;padding:9px;border-top:1px solid #ffffff0c;background:#0f1320}.demo-input{flex:1;min-width:0;border:1px solid #ffffff10;outline:none;background:#1a1f2e;color:#fff;border-radius:13px;padding:11px 12px;font:inherit;font-size:12px}.demo-input::placeholder{color:#727c95}.demo-send{border:0;border-radius:13px;width:43px;background:linear-gradient(135deg,#5e7cff,#8650ff);color:#fff;font-size:17px;cursor:pointer;transition:transform .2s ease}.demo-send:hover{transform:scale(1.05)}.demo-send:active{transform:scale(.96)}
 section{padding:85px 0}.center{text-align:center}.eyebrow{color:#8d9cff;font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:1.5px}
 h2{font-size:42px;margin:12px 0}.sub{color:#9da5b9;max-width:620px;margin:0 auto;line-height:1.6}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}
@@ -53,11 +52,14 @@ footer{border-top:1px solid #ffffff0d;padding:28px 0;color:#737c92;font-size:13p
 <div class="actions"><a class="btn" href="https://ekool-server.onrender.com">Открыть EKOOOL →</a><a class="ghost" href="#features">Возможности</a></div>
 </div>
 <div class="phone"><div class="screen">
-<div class="top">EKOOOL <span style="float:right;color:#6d7cff">●</span></div>
-<div class="chat">Привет! 👋<div class="status">сейчас</div></div>
-<div class="chat me">Добро пожаловать в EKOOOL<div class="status">доставлено ✓</div></div>
-<div class="chat">Можно общаться, создавать группы и каналы.</div>
-<div class="chat me">Поехали 🚀</div>
+<div class="top"><span style="font-size:20px">🤖</span><div class="ai-title"><div class="ai-name">EKOOOL AI ✓</div><div class="ai-status"><span class="ai-dot" style="display:inline-block;margin-right:4px"></span>онлайн</div></div><span style="color:#8d9cff">⋮</span></div>
+<div class="chatbox" id="demoChat">
+<div class="chat">Привет! 👋 Я EKOOOL AI. Напиши мне что-нибудь — я отвечу автоматически.<div class="status">сейчас</div></div>
+<div class="chat me">Расскажи про EKOOOL<div class="status">доставлено ✓</div></div>
+<div class="chat">EKOOOL — современный веб-мессенджер для общения, групп и каналов. 🚀<div class="status">сейчас</div></div>
+</div>
+<div class="typing" id="demoTyping">EKOOOL AI печатает…</div>
+<form class="demo-form" id="demoForm"><input class="demo-input" id="demoInput" autocomplete="off" placeholder="Напишите сообщение…"><button class="demo-send" type="submit">➤</button></form>
 </div></div>
 </section>
 
@@ -90,7 +92,7 @@ footer{border-top:1px solid #ffffff0d;padding:28px 0;color:#737c92;font-size:13p
 </div></div></section>
 </main>
 <script>
-(()=>{const items=document.querySelectorAll('section:not(.hero) .wrap,.card,.faq-list details,.cta');items.forEach((el,i)=>{el.classList.add('reveal');el.style.transitionDelay=Math.min((i%4)*70,210)+'ms'});const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});items.forEach(el=>io.observe(el));})();
+(()=>{const form=document.getElementById('demoForm'),input=document.getElementById('demoInput'),box=document.getElementById('demoChat'),typing=document.getElementById('demoTyping');if(!form)return;const reply=t=>{const x=t.toLowerCase();if(x.includes('привет')||x.includes('здрав'))return'Привет! 👋 Рад тебя видеть. Я готов помочь с EKOOOL.';if(x.includes('ekoo')||x.includes('мессендж'))return'В EKOOOL можно общаться, создавать группы и каналы, отправлять файлы и пользоваться AI-функциями. 🚀';if(x.includes('как дела'))return'Отлично! Я онлайн и готов отвечать на сообщения. 🤖';if(x.includes('помощ')||x.includes('что уме'))return'Могу отвечать на вопросы и рассказывать о возможностях EKOOOL. Попробуй спросить что-нибудь!';return'Интересное сообщение! 🤖 Это демо EKOOOL AI — напиши ещё что-нибудь, и я отвечу.'};form.addEventListener('submit',e=>{e.preventDefault();const t=input.value.trim();if(!t)return;const me=document.createElement('div');me.className='chat me';me.innerHTML=String(t).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));const st=document.createElement('div');st.className='status';st.textContent='доставлено ✓';me.appendChild(st);box.appendChild(me);input.value='';box.scrollTop=box.scrollHeight;typing.classList.add('show');setTimeout(()=>{typing.classList.remove('show');const bot=document.createElement('div');bot.className='chat';bot.textContent=reply(t);const s=document.createElement('div');s.className='status';s.textContent='сейчас';bot.appendChild(s);box.appendChild(bot);box.scrollTop=box.scrollHeight},700+Math.random()*500)});})();(()=>{const items=document.querySelectorAll('section:not(.hero) .wrap,.card,.faq-list details,.cta');items.forEach((el,i)=>{el.classList.add('reveal');el.style.transitionDelay=Math.min((i%4)*70,210)+'ms'});const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});items.forEach(el=>io.observe(el));})();
 </script>
 
 <footer><div class="wrap" style="width:min(1120px,92%);display:flex;justify-content:space-between"><span>© 2026 EKOOOL</span><span>Мессенджер в браузере</span></div></footer>
