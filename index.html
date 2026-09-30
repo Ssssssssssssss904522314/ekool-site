@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EKOOOL — мессенджер</title>
+<meta name="description" content="EKOOOL — современный мессенджер для общения.">
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#090b14;color:#fff}
+a{text-decoration:none;color:inherit}.wrap{width:min(1120px,92%);margin:auto}
+nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:27px;font-weight:900;letter-spacing:.5px;background:linear-gradient(90deg,#617cff,#9a58ff);-webkit-background-clip:text;color:transparent}
+.navlinks{display:flex;gap:25px;color:#b7bdd1;font-size:14px}.navlinks a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 21px;border-radius:14px;font-weight:800;background:linear-gradient(135deg,#5e7cff,#8650ff);box-shadow:0 12px 35px #624fff2e}
+.btn:hover{transform:translateY(-1px)}.btn.small{padding:10px 16px;font-size:14px}
+.hero{min-height:650px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:50px}
+.badge{display:inline-block;padding:8px 12px;border:1px solid #ffffff18;background:#ffffff08;border-radius:999px;color:#bfc7ff;font-size:13px}
+h1{font-size:clamp(48px,7vw,82px);line-height:.95;margin:20px 0 22px;letter-spacing:-4px}
+.grad{background:linear-gradient(100deg,#6682ff,#a451ff);-webkit-background-clip:text;color:transparent}
+.lead{font-size:19px;line-height:1.6;color:#aeb5c9;max-width:610px}.actions{display:flex;gap:13px;margin-top:30px;flex-wrap:wrap}
+.ghost{padding:13px 21px;border:1px solid #ffffff18;border-radius:14px;color:#dce0ec;background:#ffffff06;font-weight:700}
+.phone{width:min(350px,90%);margin:auto;padding:10px;border-radius:38px;background:#151927;border:1px solid #ffffff18;box-shadow:0 35px 90px #0008;transform:rotate(2deg)}
+.screen{border-radius:29px;min-height:570px;background:linear-gradient(180deg,#121626,#0d101b);overflow:hidden}
+.top{padding:23px 20px 15px;border-bottom:1px solid #ffffff0c;font-weight:800}
+.chat{margin:12px;padding:13px 14px;border-radius:16px;background:#1b2030;color:#dfe4f2}.chat.me{margin-left:55px;background:linear-gradient(135deg,#5f78ed,#8150e8)}
+.status{font-size:11px;color:#8f98b1;margin-top:5px}
+section{padding:85px 0}.center{text-align:center}.eyebrow{color:#8d9cff;font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:1.5px}
+h2{font-size:42px;margin:12px 0}.sub{color:#9da5b9;max-width:620px;margin:0 auto;line-height:1.6}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}
+.card{padding:28px;border:1px solid #ffffff10;background:#ffffff05;border-radius:22px}.icon{font-size:28px}.card h3{margin:18px 0 8px}.card p{color:#969fb5;line-height:1.55}
+.cta{padding:55px;border-radius:28px;text-align:center;background:radial-gradient(circle at 50% 0,#5e68ff2a,transparent 55%),#111523;border:1px solid #ffffff10}
+footer{border-top:1px solid #ffffff0d;padding:28px 0;color:#737c92;font-size:13px;display:flex;justify-content:space-between;gap:20px}
+@media(max-width:800px){.navlinks{display:none}.hero{grid-template-columns:1fr;padding:55px 0}.phone{transform:none}.cards{grid-template-columns:1fr}section{padding:60px 0}h2{font-size:34px}footer{flex-direction:column}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+<a class="logo" href="#">EKOOOL</a>
+<div class="navlinks"><a href="#about">О проекте</a><a href="#features">Возможности</a></div>
+<a class="btn small" href="https://ekool-server.onrender.com">Открыть</a>
+</nav></div></header>
+
+<main>
+<section class="hero wrap">
+<div>
+<span class="badge">💬 Ваше пространство для общения</span>
+<h1>Общайся.<br><span class="grad">Свободно.</span></h1>
+<p class="lead">EKOOOL — современный веб-мессенджер для общения, профилей, групп и каналов. Открой в браузере и начинай общаться.</p>
+<div class="actions"><a class="btn" href="https://ekool-server.onrender.com">Открыть EKOOOL →</a><a class="ghost" href="#features">Возможности</a></div>
+</div>
+<div class="phone"><div class="screen">
+<div class="top">EKOOOL <span style="float:right;color:#6d7cff">●</span></div>
+<div class="chat">Привет! 👋<div class="status">сейчас</div></div>
+<div class="chat me">Добро пожаловать в EKOOOL<div class="status">доставлено ✓</div></div>
+<div class="chat">Можно общаться, создавать группы и каналы.</div>
+<div class="chat me">Поехали 🚀</div>
+</div></div>
+</section>
+
+<section id="about"><div class="wrap center">
+<div class="eyebrow">EKOOOL</div><h2>Мессенджер без лишнего</h2>
+<p class="sub">Один сайт для общения. Регистрация, профили и общение доступны прямо в браузере — без отдельной установки.</p>
+</div></section>
+
+<section id="features"><div class="wrap">
+<div class="center"><div class="eyebrow">Возможности</div><h2>Всё необходимое</h2></div>
+<div class="cards">
+<div class="card"><div class="icon">💬</div><h3>Чаты</h3><p>Общайся с другими пользователями через удобный интерфейс EKOOOL.</p></div>
+<div class="card"><div class="icon">👤</div><h3>Профиль</h3><p>Создай свой профиль с именем и публичным юзернеймом.</p></div>
+<div class="card"><div class="icon">👥</div><h3>Группы и каналы</h3><p>Создавай пространства для общения и публикаций.</p></div>
+</div></div></section>
+
+<section><div class="wrap"><div class="cta">
+<div class="eyebrow">Готов начать?</div><h2>Добро пожаловать в EKOOOL</h2>
+<p class="sub">Открой мессенджер и создай свой аккаунт.</p>
+<div style="margin-top:25px"><a class="btn" href="https://ekool-server.onrender.com">Открыть EKOOOL →</a></div>
+</div></div></section>
+</main>
+
+<footer><div class="wrap" style="width:min(1120px,92%);display:flex;justify-content:space-between"><span>© 2026 EKOOOL</span><span>Мессенджер в браузере</span></div></footer>
+</body>
+</html>
