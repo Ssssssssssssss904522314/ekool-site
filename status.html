@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EKOOOL — статус</title>
+<meta name="theme-color" content="#09090b">
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#09090b;color:#fff}
+body{overflow-x:hidden}.wrap{width:min(1050px,92%);margin:auto}
+header{height:78px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:27px;font-weight:950;letter-spacing:-1px}.logo b{color:#ff1744}.logo i{color:#25f4ee;font-style:normal}
+.back{color:#aaa;text-decoration:none;font-size:14px}.back:hover{color:#fff}
+.hero{padding:52px 0 28px}.eyebrow{color:#aaa;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px}
+h1{font-size:clamp(38px,7vw,72px);line-height:.95;letter-spacing:-4px;margin:12px 0 18px}
+.sub{color:#aaa;font-size:17px;max-width:650px;line-height:1.6}
+.status{margin:30px 0;display:flex;align-items:center;gap:18px;padding:22px 24px;border-radius:24px;background:#111114;border:1px solid #25252a;box-shadow:0 20px 70px #0008}
+.dot{width:17px;height:17px;border-radius:50%;background:#25f4ee;box-shadow:0 0 24px #25f4ee99;flex:none}.down .dot{background:#ff1744;box-shadow:0 0 24px #ff174499}.checking .dot{background:#ffd43b;box-shadow:0 0 24px #ffd43b99}
+.status strong{font-size:21px}.status small{display:block;color:#888;margin-top:5px}
+.grid{display:grid;grid-template-columns:1.5fr 1fr;gap:18px;margin:18px 0}.card{background:#111114;border:1px solid #25252a;border-radius:24px;padding:24px}.card h2{font-size:17px;margin:0 0 16px}.meta{color:#888;font-size:13px}
+canvas{width:100%;height:230px;display:block}.legend{display:flex;justify-content:space-between;color:#777;font-size:12px;margin-top:5px}
+.services{display:grid;gap:10px}.service{display:flex;align-items:center;justify-content:space-between;padding:15px 16px;border-radius:16px;background:#17171b}.left{display:flex;align-items:center;gap:10px}.mini{width:9px;height:9px;border-radius:50%;background:#25f4ee}.mini.bad{background:#ff1744}.mini.warn{background:#ffd43b}
+.incident{padding:15px 0;border-bottom:1px solid #242428}.incident:last-child{border:0}.incident b{font-size:14px}.incident span{display:block;color:#777;font-size:12px;margin-top:5px}
+footer{padding:35px 0 55px;color:#666;font-size:12px;text-align:center}
+@media(max-width:760px){.grid{grid-template-columns:1fr}h1{letter-spacing:-2.5px}.status{padding:18px}.hero{padding-top:35px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><a class="logo" href="/"><span>EK</span><b>O</b><i>OO</i><span>L</span></a><a class="back" href="/">← EKOOOL</a></header>
+<section class="hero">
+<div class="eyebrow">Состояние сервисов</div>
+<h1>EKOOOL<br>STATUS</h1>
+<div class="sub">Автоматическая проверка мессенджера. Если сервер перестанет отвечать, статус и график обновятся сами.</div>
+<div id="status" class="status checking"><div class="dot"></div><div><strong id="statusText">Проверяем…</strong><small id="statusMeta">Подключаемся к EKOOOL</small></div></div>
+</section>
+<div class="grid">
+<section class="card"><h2>Доступность за последние 24 часа</h2><canvas id="chart"></canvas><div class="legend"><span>24ч назад</span><span>Сейчас</span></div></section>
+<section class="card"><h2>Сервисы</h2><div class="services">
+<div class="service"><div class="left"><span id="apiDot" class="mini"></span>API / сервер</div><b id="apiState">—</b></div>
+<div class="service"><div class="left"><span id="dbDot" class="mini"></span>Соединение</div><b id="dbState">—</b></div>
+<div class="service"><div class="left"><span class="mini"></span>Сайт</div><b>Online</b></div>
+</div><p class="meta" style="margin:16px 0 0">Последняя проверка: <span id="last">—</span></p></section>
+</div>
+<section class="card"><h2>История неполадок</h2><div id="incidents"><div class="meta">Пока неполадок не зафиксировано.</div></div></section>
+<footer>EKOOOL Status · проверка каждые 30 секунд</footer>
+</div>
+<script>
+const API='https://ekool-server.onrender.com/api/health', KEY='ekool_status_history_v1';
+let history=JSON.parse(localStorage.getItem(KEY)||'[]');
+const $=s=>document.querySelector(s);
+function save(){history=history.slice(-2880);localStorage.setItem(KEY,JSON.stringify(history))}
+function time(t){return new Date(t).toLocaleString('ru-RU',{hour:'2-digit',minute:'2-digit',day:'2-digit',month:'2-digit'})}
+function draw(){
+ const c=$('#chart'),d=devicePixelRatio||1,w=c.clientWidth,h=230;c.width=w*d;c.height=h*d;const x=c.getContext('2d');x.scale(d,d);x.clearRect(0,0,w,h);
+ x.strokeStyle='#242428';x.lineWidth=1;for(let i=1;i<4;i++){let y=i*h/4;x.beginPath();x.moveTo(0,y);x.lineTo(w,y);x.stroke()}
+ if(!history.length)return;
+ const n=Math.max(2,history.length), step=w/(n-1);x.lineWidth=3;x.lineCap='round';x.lineJoin='round';
+ for(let i=1;i<history.length;i++){const a=history[i-1],b=history[i];x.strokeStyle=b.ok?'#25f4ee':'#ff1744';x.beginPath();x.moveTo((i-1)*step,h-(a.ok?h*.72:h*.18));x.lineTo(i*step,h-(b.ok?h*.72:h*.18));x.stroke()}
+}
+function incidents(){
+ const bad=history.filter(x=>!x.ok);const box=$('#incidents');
+ if(!bad.length){box.innerHTML='<div class="meta">Пока неполадок не зафиксировано.</div>';return}
+ const groups=[];for(const b of bad){const last=groups.at(-1);if(last&&b.t-last.at<120000){last.to=b.t}else groups.push({at:b.t,to:b.t})}
+ box.innerHTML=groups.slice(-8).reverse().map(g=>'<div class="incident"><b>🔴 Неполадка</b><span>'+time(g.at)+(g.to!==g.at?' — '+time(g.to):'')+'</span></div>').join('')
+}
+async function check(){
+ const box=$('#status');box.className='status checking';$('#statusText').textContent='Проверяем…';$('#statusMeta').textContent='Запрос к серверу';
+ const t=Date.now();
+ try{
+   const r=await fetch(API,{cache:'no-store',signal:AbortSignal.timeout(10000)});if(!r.ok)throw new Error('HTTP '+r.status);
+   const j=await r.json();if(j.ok===false)throw new Error('health failed');
+   history.push({t,ok:true});save();box.className='status';$('#statusText').textContent='EKOOOL работает';$('#statusMeta').textContent='Все основные сервисы отвечают';$('#apiState').textContent='Online';$('#dbState').textContent='Online';$('#apiDot').className='mini';$('#dbDot').className='mini';
+ }catch(e){
+   history.push({t,ok:false});save();box.className='status down';$('#statusText').textContent='Неполадки';$('#statusMeta').textContent='Сервер не отвечает или вернул ошибку';$('#apiState').textContent='Offline';$('#dbState').textContent='Проверка не пройдена';$('#apiDot').className='mini bad';$('#dbDot').className='mini bad';
+ }
+ $('#last').textContent=time(t);draw();incidents();
+}
+window.addEventListener('resize',draw);check();setInterval(check,30000);
+</script>
+</body>
+</html>
