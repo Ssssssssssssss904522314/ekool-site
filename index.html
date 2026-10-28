@@ -7,28 +7,28 @@
 <meta name="description" content="EKOOOL — современный мессенджер для общения.">
 <style>
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{overflow-x:hidden}::selection{background:#6d70ff55;color:#fff}
-body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#090b14;color:#fff}
+body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#071c20;color:#f2fbfc;position:relative}body:before{content:"";position:absolute;z-index:-1;inset:0 0 auto;height:760px;background:radial-gradient(ellipse at 75% 35%,#16464b88,transparent 48%),radial-gradient(ellipse at 15% 70%,#10373b88,transparent 42%);pointer-events:none}
 a{text-decoration:none;color:inherit}.wrap{width:min(1120px,92%);margin:auto}
 nav{height:76px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:27px;font-weight:900;letter-spacing:.5px;background:linear-gradient(90deg,#617cff,#9a58ff);-webkit-background-clip:text;color:transparent}
-.navlinks{display:flex;gap:25px;color:#b7bdd1;font-size:14px}.navlinks a{transition:color .2s ease}.navlinks a:hover{color:#fff}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 21px;border-radius:14px;font-weight:800;background:linear-gradient(135deg,#5e7cff,#8650ff);box-shadow:0 12px 35px #624fff2e;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease,filter .25s ease;will-change:transform}.btn:hover{transform:translateY(-3px) scale(1.01);box-shadow:0 18px 45px #624fff45;filter:brightness(1.06)}.btn:active{transform:translateY(-1px) scale(.985)}
+.logo{font-size:27px;font-weight:900;letter-spacing:.5px;color:#eafcff;display:flex;align-items:center;gap:10px}.logo:before{content:"✳";display:grid;place-items:center;width:34px;height:34px;border-radius:12px;background:#b7e8ef;color:#073138;font-size:23px}
+.navlinks{display:flex;gap:25px;color:#b5c9cc;font-size:14px}.navlinks a{transition:color .2s ease}.navlinks a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 23px;border-radius:999px;font-weight:800;background:#b7e8ef;color:#082c31;box-shadow:0 12px 35px #55c6d322;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease,filter .25s ease;will-change:transform}.btn:hover{transform:translateY(-3px) scale(1.01);box-shadow:0 18px 45px #55c6d344;filter:brightness(1.05)}.btn:active{transform:translateY(-1px) scale(.985)}
 .btn.small{padding:10px 16px;font-size:14px}
-.hero{min-height:650px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:50px}.hero>div:first-child{animation:heroIn .8s cubic-bezier(.2,.8,.2,1) both}.hero .phone{animation:phoneIn .9s .08s cubic-bezier(.2,.8,.2,1) both}
-.badge{display:inline-block;padding:8px 12px;border:1px solid #ffffff18;background:#ffffff08;border-radius:999px;color:#bfc7ff;font-size:13px}
+.hero{position:relative;min-height:690px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:50px}.hero:after{content:"";position:absolute;z-index:-1;right:-3%;top:8%;width:220px;height:220px;border-radius:38% 62% 61% 39%;background:#c4f0f018;transform:rotate(23deg);box-shadow:-780px 210px 0 -48px #c4f0f012,90px 390px 0 -30px #c4f0f012}.hero>div:first-child{animation:heroIn .8s cubic-bezier(.2,.8,.2,1) both}.hero .phone{animation:phoneIn .9s .08s cubic-bezier(.2,.8,.2,1) both}
+.badge{display:inline-block;padding:9px 14px;border:1px solid #b7e8ef28;background:#b7e8ef0c;border-radius:999px;color:#b7e8ef;font-size:13px;letter-spacing:.3px}
 h1{font-size:clamp(48px,7vw,82px);line-height:.95;margin:20px 0 22px;letter-spacing:-4px}
-.grad{background:linear-gradient(100deg,#6682ff,#a451ff);-webkit-background-clip:text;color:transparent}
-.lead{font-size:19px;line-height:1.6;color:#aeb5c9;max-width:610px}.actions{display:flex;gap:13px;margin-top:30px;flex-wrap:wrap}
-.ghost{padding:13px 21px;border:1px solid #ffffff18;border-radius:14px;color:#dce0ec;background:#ffffff06;font-weight:700;transition:transform .25s ease,background .25s ease,border-color .25s ease}.ghost:hover{transform:translateY(-3px);background:#ffffff0d;border-color:#ffffff2b}
-.phone{width:min(390px,94%);margin:auto;padding:10px;border-radius:38px;background:#151927;border:1px solid #ffffff18;box-shadow:0 35px 90px #0008;transform:rotate(2deg);transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s ease}.phone:hover{transform:rotate(0deg) translateY(-8px);box-shadow:0 45px 105px #000a}
-.screen{border-radius:29px;min-height:570px;height:570px;background:linear-gradient(180deg,#121626,#0d101b);overflow:hidden;display:flex;flex-direction:column}
-.top{padding:18px 18px 13px;border-bottom:1px solid #ffffff0c;font-weight:800;display:flex;align-items:center;gap:10px}.ai-dot{width:9px;height:9px;border-radius:50%;background:#36df85;box-shadow:0 0 12px #36df85}.ai-title{flex:1}.ai-name{font-size:14px}.ai-status{font-size:10px;color:#8f98b1;font-weight:500;margin-top:2px}
-.chatbox{flex:1;overflow:auto;padding:8px 7px 4px;scroll-behavior:smooth}.chat{margin:9px 5px;padding:11px 12px;border-radius:16px;background:#1b2030;color:#dfe4f2;max-width:84%;font-size:13px;line-height:1.4}.chat.me{margin-left:auto;background:linear-gradient(135deg,#5f78ed,#8150e8);color:#fff}.status{font-size:9px;color:#8f98b1;margin-top:5px}.chat.me .status{color:#d7dbff}.typing{display:none;margin:6px 5px 9px;color:#8f98b1;font-size:11px}.typing.show{display:block}.demo-form{display:flex;gap:7px;padding:9px;border-top:1px solid #ffffff0c;background:#0f1320}.demo-input{flex:1;min-width:0;border:1px solid #ffffff10;outline:none;background:#1a1f2e;color:#fff;border-radius:13px;padding:11px 12px;font:inherit;font-size:12px}.demo-input::placeholder{color:#727c95}.demo-send{border:0;border-radius:13px;width:43px;background:linear-gradient(135deg,#5e7cff,#8650ff);color:#fff;font-size:17px;cursor:pointer;transition:transform .2s ease}.demo-send:hover{transform:scale(1.05)}.demo-send:active{transform:scale(.96)}
-section{padding:85px 0}.center{text-align:center}.eyebrow{color:#8d9cff;font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:1.5px}
+.grad{background:linear-gradient(100deg,#b7e8ef,#66c4d0);-webkit-background-clip:text;color:transparent}
+.lead{font-size:19px;line-height:1.65;color:#adc3c6;max-width:610px}.actions{display:flex;gap:13px;margin-top:30px;flex-wrap:wrap}
+.ghost{padding:13px 21px;border:1px solid #b7e8ef35;border-radius:999px;color:#e0f0f1;background:#ffffff05;font-weight:700;transition:transform .25s ease,background .25s ease,border-color .25s ease}.ghost:hover{transform:translateY(-3px);background:#ffffff0d;border-color:#ffffff2b}
+.phone{position:relative;width:min(370px,94%);margin:auto;padding:10px;border-radius:42px;background:linear-gradient(145deg,#26383e,#080f13 48%,#34494e);border:1px solid #7fa6aa55;box-shadow:0 35px 90px #0008,0 0 0 5px #0003;transform:rotate(2deg);transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s ease}.phone:hover{transform:rotate(0deg) translateY(-8px);box-shadow:0 45px 105px #000a}
+.screen{border-radius:32px;min-height:570px;height:570px;background:linear-gradient(180deg,#102e34,#091b20);overflow:hidden;display:flex;flex-direction:column}
+.top{padding:18px 18px 13px;border-bottom:1px solid #b7e8ef12;font-weight:800;display:flex;align-items:center;gap:10px}.ai-dot{width:9px;height:9px;border-radius:50%;background:#36df85;box-shadow:0 0 12px #36df85}.ai-title{flex:1}.ai-name{font-size:14px}.ai-status{font-size:10px;color:#8f98b1;font-weight:500;margin-top:2px}
+.chatbox{flex:1;overflow:auto;padding:8px 7px 4px;scroll-behavior:smooth}.chat{margin:9px 5px;padding:11px 12px;border-radius:16px;background:#183b40;color:#e3f4f5;max-width:84%;font-size:13px;line-height:1.4}.chat.me{margin-left:auto;background:linear-gradient(135deg,#3e9da8,#267680);color:#fff}.status{font-size:9px;color:#8f98b1;margin-top:5px}.chat.me .status{color:#d7dbff}.typing{display:none;margin:6px 5px 9px;color:#8f98b1;font-size:11px}.typing.show{display:block}.demo-form{display:flex;gap:7px;padding:9px;border-top:1px solid #b7e8ef12;background:#0b2227}.demo-input{flex:1;min-width:0;border:1px solid #b7e8ef16;outline:none;background:#173238;color:#fff;border-radius:13px;padding:11px 12px;font:inherit;font-size:12px}.demo-input::placeholder{color:#727c95}.demo-send{border:0;border-radius:13px;width:43px;background:#b7e8ef;color:#082c31;font-size:17px;cursor:pointer;transition:transform .2s ease}.demo-send:hover{transform:scale(1.05)}.demo-send:active{transform:scale(.96)}
+section{padding:85px 0}.center{text-align:center}.eyebrow{color:#8bcbd3;font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:1.5px}
 h2{font-size:42px;margin:12px 0}.sub{color:#9da5b9;max-width:620px;margin:0 auto;line-height:1.6}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}
-.card{padding:28px;border:1px solid #ffffff10;background:#ffffff05;border-radius:22px;transition:transform .35s cubic-bezier(.2,.8,.2,1),background .35s ease,border-color .35s ease,box-shadow .35s ease}.card:hover{transform:translateY(-8px);background:#ffffff09;border-color:#ffffff1d;box-shadow:0 22px 55px #0005}.icon{font-size:28px}.card h3{margin:18px 0 8px}.card p{color:#969fb5;line-height:1.55}
-.cta{padding:55px;border-radius:28px;text-align:center;background:radial-gradient(circle at 50% 0,#5e68ff2a,transparent 55%),#111523;border:1px solid #ffffff10}
+.card{padding:28px;border:1px solid #b7e8ef16;background:#b7e8ef05;border-radius:22px;transition:transform .35s cubic-bezier(.2,.8,.2,1),background .35s ease,border-color .35s ease,box-shadow .35s ease}.card:hover{transform:translateY(-8px);background:#ffffff09;border-color:#ffffff1d;box-shadow:0 22px 55px #0005}.icon{font-size:28px}.card h3{margin:18px 0 8px}.card p{color:#969fb5;line-height:1.55}
+.cta{padding:55px;border-radius:28px;text-align:center;background:radial-gradient(circle at 50% 0,#55c6d022,transparent 55%),#0c272c;border:1px solid #b7e8ef16}
 footer{border-top:1px solid #ffffff0d;padding:28px 0;color:#737c92;font-size:13px;display:flex;justify-content:space-between;gap:20px}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}.reveal.visible{opacity:1;transform:none}@keyframes heroIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}@keyframes phoneIn{from{opacity:0;transform:translateY(28px) rotate(5deg)}to{opacity:1;transform:rotate(2deg)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero>div:first-child,.hero .phone{animation:none}.btn,.ghost,.phone,.card,.faq-list details{transition:none}.reveal{opacity:1;transform:none;transition:none}}
@@ -40,16 +40,16 @@ footer{border-top:1px solid #ffffff0d;padding:28px 0;color:#737c92;font-size:13p
 <header><div class="wrap"><nav>
 <a class="logo" href="#">EKOOOL</a>
 <div class="navlinks"><a href="#about">О проекте</a><a href="#features">Возможности</a><a href="#support">Поддержка</a><a href="/status.html">Статус</a></div>
-<a class="btn small" href="https://ekool-server.onrender.com">Открыть</a>
+<a class="btn small" href="https://ekoool.opik.net">Открыть</a>
 </nav></div></header>
 
 <main>
 <section class="hero wrap">
 <div>
-<span class="badge">💬 Ваше пространство для общения</span>
-<h1>Общайся.<br><span class="grad">Свободно.</span></h1>
-<p class="lead">EKOOOL — современный веб-мессенджер для общения, профилей, групп и каналов. Открой в браузере и начинай общаться.</p>
-<div class="actions"><a class="btn" href="https://ekool-server.onrender.com">Открыть EKOOOL →</a><a class="ghost" href="#features">Возможности</a></div>
+<span class="badge">✦ Мессенджер нового настроения</span>
+<h1>Твоя связь.<br><span class="grad">Твои правила.</span></h1>
+<p class="lead">EKOOOL — пространство для личных чатов, групп и каналов. Всё важное для общения — в одном месте, с чистым интерфейсом и без лишнего шума.</p>
+<div class="actions"><a class="btn" href="https://ekoool.opik.net">Открыть EKOOOL →</a><a class="ghost" href="#features">Возможности</a></div>
 </div>
 <div class="phone"><div class="screen">
 <div class="top"><span style="font-size:20px">🤖</span><div class="ai-title"><div class="ai-name">EKOOOL AI ✓</div><div class="ai-status"><span class="ai-dot" style="display:inline-block;margin-right:4px"></span>онлайн</div></div><span style="color:#8d9cff">⋮</span></div>
@@ -64,8 +64,8 @@ footer{border-top:1px solid #ffffff0d;padding:28px 0;color:#737c92;font-size:13p
 </section>
 
 <section id="about"><div class="wrap center">
-<div class="eyebrow">EKOOOL</div><h2>Мессенджер без лишнего</h2>
-<p class="sub">Один сайт для общения. Регистрация, профили и общение доступны прямо в браузере — без отдельной установки.</p>
+<div class="eyebrow">Знакомься с EKOOOL</div><h2>Ближе. Проще. По-твоему.</h2>
+<p class="sub">Общение, которое не отвлекает от главного. Открой EKOOOL в браузере и оставайся на связи со своими людьми.</p>
 </div></section>
 
 <section id="features"><div class="wrap">
